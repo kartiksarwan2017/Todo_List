@@ -1,0 +1,401 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  overflow-y: scroll;
+  background: url("./assets/todo-background.avif");
+  background-repeat: repeat-y;
+  background-size: 100vw 100vh;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  background-color: lightskyblue;
+  height: 80px;
+}
+
+.navbar-container img {
+  width: 70px;
+  padding: 5px;
+}
+
+.todo-header-container h1 {
+  color: blue;
+  text-align: center;
+  font-size: 30px;
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  left: 100px;
+}
+
+.todo-container .to-do-description {
+  width: 400px;
+  height: 40px;
+  position: absolute;
+  left: 450px;
+  top: 200px;
+  padding: 20px 20px 20px 80px;
+  font-size: 25px;
+  border: none;
+  border-radius: 8px;
+}
+
+.todo-container .to-do-description:hover {
+  border: 2px solid cyan;
+}
+
+.todo-container .todo-icon img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 460px;
+  top: 210px;
+  padding: 5px;
+}
+
+.todo-button {
+  position: absolute;
+  width: 39px;
+  height: 39px;
+  left: 880px;
+  top: 219px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.todo-container .fa-square-plus {
+  color: cyan;
+  position: relative;
+  bottom: 2px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+
+.todo-container .fa-square-plus {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.todo-container .fa-square-plus.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.todo-container .fa-square-plus:hover {
+  color: greenyellow;
+}
+
+.todo-container .fa-square-plus:active {
+  color: green;
+}
+
+.controls {
+  display: flex;
+  max-width: 700px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 30px;
+  border-radius: 1px solid #ccc;
+  position: absolute;
+  left: 450px;
+  top: 340px;
+}
+
+.filters span {
+  cursor: pointer;
+  margin: 0 8px;
+  font-size: 25px;
+  font-weight: bold;
+  color: green;
+}
+
+.filters span:first-child {
+  margin-left: 0;
+}
+
+.filters span.active {
+  color: #3c87ff;
+}
+
+.controls .clear-btn {
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  border-radius: 7px;
+  padding: 7px 13px;
+  background: #3c87ff;
+  position: relative;
+  left: 40px;
+  top: 1px;
+}
+
+.controls .clear-btn:hover {
+  background: red;
+}
+.controls .clear-btn:active {
+  background: linear-gradient(greenyellow, yellowgreen);
+}
+
+.todo-container .todolist {
+  position: absolute;
+  left: 450px;
+  top: 350px;
+}
+
+.todo-container .task-stats-container {
+  margin-top: 40px;
+}
+
+.todolist li {
+  list-style: none;
+  height: 50px;
+  line-height: 45px;
+  position: relative;
+  right: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  background: linear-gradient(90deg, cyan, yellow);
+  margin-bottom: 20px;
+  padding-left: 20px;
+  width: 440px;
+  border-radius: 15px;
+  cursor: default;
+  overflow: hidden;
+  bottom: 100px;
+}
+
+.todolist-container {
+  position: relative;
+  top: 120px;
+}
+
+.todolist {
+  margin: 20px 25px;
+  width: 400px;
+}
+
+.todolist .task {
+  list-style: none;
+  font-size: 17px;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 16px;
+  border-bottom: 1px solid #ccc;
+  height: 200px;
+}
+
+.task label {
+  display: flex;
+}
+
+.task label p.checked {
+  text-decoration: line-through;
+}
+
+.task label input {
+  margin-top: 6px;
+  margin-right: 12px;
+}
+
+.task label .select-taskitem {
+  position: relative;
+  top: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.task label .task-details {
+  position: relative;
+  left: 40px;
+  top: 40px;
+  font-size: 25px;
+}
+
+.task .settings {
+  cursor: pointer;
+  position: relative;
+}
+
+.todolist li #menu-icon {
+  position: absolute;
+  right: -45px;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  background: #e74c3c;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.fa-ellipsis {
+  padding-top: 40px;
+}
+
+.todolist li:hover #menu-icon {
+  right: 0px;
+  top: 20px;
+}
+
+.todolist li #menu-icon:hover {
+  background: cyan;
+}
+
+.settings .task-menu {
+  position: absolute;
+  padding: 5px 0;
+  right: -5px;
+  top: 0px;
+  z-index: 2;
+  transform: scale(0);
+  border-radius: 4px;
+  background: #fff;
+  transform-origin: top right;
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.task-menu li {
+  width: 80px;
+  position: relative;
+  top: 1px;
+}
+
+.task-menu li #edit-icon {
+  color: blue;
+  position: relative;
+  bottom: 8px;
+}
+
+.task-menu li #delete-icon {
+  color: red;
+  position: relative;
+  bottom: 5px;
+}
+
+.task-menu li #edit-item {
+  font-size: 18px;
+  position: relative;
+  bottom: 52px;
+  left: 23px;
+  color: blue;
+}
+
+.task-menu li #delete-item {
+  position: relative;
+  color: red;
+  top: -50px;
+  left: 20px;
+  font-size: 18px;
+}
+
+.no-task-entered-title {
+  font-size: 25px;
+  font-weight: 750;
+  color: darkmagenta;
+  position: relative;
+  bottom: 100px;
+  left: 20px;
+}
+
+.settings .task-menu.show {
+  transform: scale(1);
+  width: 120px;
+  padding: 7px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, yellowgreen, greenyellow);
+}
+
+.task-menu li:last-child {
+  margin-bottom: 0;
+}
+
+.task-menu li {
+  height: 25px;
+  font-size: 16px;
+  padding: 17px 15px;
+  margin-bottom: 2px;
+  justify-content: flex-start;
+}
+
+.task-menu li:hover {
+  background: #f5f5f5;
+}
+
+.task-menu li i {
+  padding-right: 8px;
+}
+
+.task-stats-container .todo-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 50px;
+  left: 1100px;
+}
+
+.todo-stats .task-count-container {
+  display: inline;
+  background: linear-gradient(greenyellow, yellowgreen);
+  padding: 40px;
+  position: relative;
+  left: 50px;
+  border-radius: 11px;
+}
+
+.todo-stats .task-count-container:hover {
+  background: linear-gradient(90deg, cyan, yellow);
+}
+
+.todo-stats span {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.total-task-title,
+.completed-task-title,
+.remaining-task-title {
+  font-size: 30px;
+  font-weight: 750;
+  margin: 50px 0;
+}
+
+.total-task-title:hover {
+  color: blue;
+}
+
+.completed-task-title:hover {
+  color: green;
+}
+
+.remaining-task-title:hover {
+  color: red;
+}
+.completed-count {
+  color: green;
+}
+
+.total-count {
+  color: blue;
+}
+
+.remaining-count {
+  color: red;
+}

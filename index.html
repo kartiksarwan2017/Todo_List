@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="./assets/to-do-list.png" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <script src="https://kit.fontawesome.com/0a9b7b3b75.js" crossorigin="anonymous"></script>
+    <title>To do List</title>
+  </head>
+  <body>
+    <header>
+      <navbar>
+        <div class="navbar-container">
+          <img src="./assets/to-do-list.png" alt="todo-list-icon" />
+        </div>
+      </navbar>
+
+      <div class="todo-header-container">
+        <a href="#">
+          <h1>Todo List</h1>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <div class="todo-container">
+        <section class="todo-input-field">
+          <div class="to-do-description-container add-todo-input">
+            <input type="text"
+              class="to-do-description "
+              placeholder="Type your todo list"
+            ></input>
+
+            <div class="todo-icon">
+              <img src="./assets/to-do-list-icon.png" />
+            </div>
+            
+            <button class="todo-button" type="submit">
+            <i class="fa-solid fa-square-plus fa-3x add-button"></i>
+            </button>
+
+          </div>
+              <div class="controls">
+                <div class="filters">
+                  <span id="all" class="active">All</span>
+                  <span id="pending">Pending</span>
+                  <span id="completed">Completed</span>
+                </div>
+                <button class="clear-btn">Clear All</button>
+              </div>    
+        </section>
+
+        <div class="todolist-container">
+          <ul class="todolist"></ul>
+        </div>
+      </div>
+
+      <div class="task-stats-container">
+          <div class="todo-stats">
+            <div class="total-tasks">
+              <p class="total-task-title">
+                Total Tasks
+              </p> 
+              <div class="task-count-container">
+              <span class="total-count">0</span>
+              </div>
+            </div>
+            <div class="completed-tasks">
+              <p class="completed-task-title">
+                Completed Tasks 
+              </p>
+              <div class="task-count-container">
+                <span class="completed-count">0</span>
+              </div>
+            </div>
+            <div class="remaining-tasks">
+              <p class="remaining-task-title">
+                Remaining Tasks
+              </p>
+              <div class="task-count-container">
+                <span class="remaining-count">0</span>
+              </div>
+            </div>
+          </div>
+      </div>
+    </main>
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>
