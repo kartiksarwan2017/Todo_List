@@ -25,6 +25,10 @@ filters.forEach(btn => {
   });
 });
 
+function storeItems() {
+  localStorage.setItem("todo-list", JSON.stringify(todos));
+}
+
 // displays the tasks created in filtered category such as pending, completed, all tasks
 function showTodo(filter) {
   let li = "";
@@ -93,14 +97,14 @@ function editTask(taskId, taskName) {
 function deleteTask(deleteId) {
   //   console.log(deleteId);
   todos.splice(deleteId, 1);
-  localStorage.setItem("todo-list", JSON.stringify(todos));
+  storeItems();
   showTodo("all");
 }
 
 // performs the deletion of all tasks
 clearAll.addEventListener("click", () => {
   todos.splice(0, todos.length);
-  localStorage.setItem("todo-list", JSON.stringify(todos));
+  storeItems();
   showTodo("all");
 });
 
@@ -109,14 +113,17 @@ function updateStatus(selectedTask) {
   //   console.log(selectedTask);
 
   let taskName = selectedTask.parentElement.lastElementChild;
+  // check if the task selected is checked or not
   if (selectedTask.checked) {
+    // if the task added is seleted then mark it as completed
     taskName.classList.add("checked");
     todos[selectedTask.id].status = "completed";
   } else {
+    // if the task added is not checked then mark it as pending
     taskName.classList.remove("checked");
     todos[selectedTask.id].status = "pending";
   }
-  localStorage.setItem("todo-list", JSON.stringify(todos));
+  storeItems();
 }
 
 // adding Task upon pressing keyboard keys such as enter
@@ -135,7 +142,7 @@ taskInput.addEventListener("keyup", e => {
     }
 
     taskInput.value = "";
-    localStorage.setItem("todo-list", JSON.stringify(todos));
+    storeItems();
     showTodo("all");
   }
 });
@@ -163,7 +170,7 @@ addTodoButton.onclick = () => {
   }
 
   taskInput.value = "";
-  localStorage.setItem("todo-list", JSON.stringify(todos));
+  storeItems();
   showTodo("all");
 };
 

@@ -10,7 +10,9 @@
     <title>To do List</title>
   </head>
   <body>
+    <!-- Header Container -->
     <header>
+      <!-- Navbar Container -->
       <navbar>
         <div class="navbar-container">
           <img src="./assets/to-do-list.png" alt="todo-list-icon" />
@@ -24,8 +26,10 @@
       </div>
     </header>
 
+    <!-- Main Section -->
     <main>
       <div class="todo-container">
+        <!-- this container consists of the input Box to the enter the task -->
         <section class="todo-input-field">
           <div class="to-do-description-container add-todo-input">
             <input type="text"
@@ -42,6 +46,7 @@
             </button>
 
           </div>
+          <!-- This is the controls container for listing tasks based upon its status such as pending, All tasks, completed -->
               <div class="controls">
                 <div class="filters">
                   <span id="all" class="active">All</span>
@@ -52,11 +57,14 @@
               </div>    
         </section>
 
+        <!-- This container cosists of the task added in the todolist -->
         <div class="todolist-container">
           <ul class="todolist"></ul>
         </div>
       </div>
 
+      <!-- This section describes the count of the task in each category i.e pending tasks, All tasks, completed tasks -->
+      <section class="task-status">
       <div class="task-stats-container">
           <div class="todo-stats">
             <div class="total-tasks">
@@ -85,6 +93,7 @@
             </div>
           </div>
       </div>
+    </section> 
     </main>
     <script type="text/javascript" src="./script.js"></script>
   </body>
