@@ -25,6 +25,7 @@ filters.forEach(btn => {
   });
 });
 
+// function to store the tasks added by the user
 function storeItems() {
   localStorage.setItem("todo-list", JSON.stringify(todos));
 }
